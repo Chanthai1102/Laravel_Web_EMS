@@ -17,6 +17,7 @@ class Product extends Model
         'color',
         'size',
         'description',
+        'thumbnail',
         'viewer',
         'thumbnail',
     ];

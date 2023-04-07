@@ -19,7 +19,8 @@ return new class extends Migration
             $table->string('sale_price');
             $table->string('color');
             $table->string('size');
-            $table->string('description');
+            $table->text('description');
+            $table->string('thumbnail');
             $table->integer('viewer');
             $table->timestamps();
         });

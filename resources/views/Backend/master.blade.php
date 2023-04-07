@@ -177,7 +177,7 @@
 
                     <ul class="menu-sub">
                         <li class="menu-item">
-                            <a href="/admin/category-view" class="menu-link">
+                            <a href="/admin/product-view" class="menu-link">
                                 <div data-i18n="Without navbar">View Product</div>
                             </a>
                         </li>

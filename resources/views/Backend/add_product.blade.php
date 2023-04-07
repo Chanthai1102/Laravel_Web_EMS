@@ -7,7 +7,7 @@
             <h4 class="fw-bold py-3 mb-4"><span class="text-muted fw-light"></span>Add Products</h4>
             <div class="col-xl-12">
                 <!-- File input -->
-                <form action="/admin/product/submit" method="post" enctype="multipart/form-data">
+                <form action="/admin/product-add/submit" method="post" enctype="multipart/form-data">
                     @csrf
                     <div class="card">
                         <h5 class="card-header">Products</h5>

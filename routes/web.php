@@ -61,5 +61,7 @@ Route::prefix('/admin')->group(function (){
         Route::post('/color-edit/submit', [ColorController::class, 'edit_color_submit']);
 //        Product
         Route::get('/product-add', [ProductController::class, 'add_product']);
+        Route::post('/product-add/submit', [ProductController::class, 'add_product_submit']);
+        Route::get('/product-view', [ProductController::class, 'view_product']);
     });
 });
