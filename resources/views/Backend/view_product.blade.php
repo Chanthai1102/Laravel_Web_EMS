@@ -39,7 +39,13 @@
                                         </span>
                                     @endforeach
                                 </td>
-                                <td></td>
+                                <td>
+                                    @foreach($item->sizes as $size)
+                                        <span class="badge bg-success">
+                                            {{$size->name}}
+                                        </span>
+                                    @endforeach
+                                </td>
                                 <td>{{$item->viewer}}</td>
                                 <td><i class="fab fa-angular fa-lg text-danger me-3"></i>
                                     <img src="../uploads/{{$item->thumbnail}}" width="80px">

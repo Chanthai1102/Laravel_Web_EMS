@@ -5,13 +5,14 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class ProductColor extends Model
+class ProductSize extends Model
 {
-    protected $table = 'product_color';
+    protected $table = 'productsize';
 
     protected $hidden = ['pivot'];
+
     public function name()
     {
-        return $this->belongsTo(Color::class);
+        return $this->belongsTo(Size::class);
     }
 }

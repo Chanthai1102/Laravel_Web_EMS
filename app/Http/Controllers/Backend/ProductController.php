@@ -27,8 +27,6 @@ class ProductController extends Controller
         $regular_price = $request -> regular_price;
         $sale_price = $request -> sale_price;
         $category = $request -> category;
-        $color = implode(", ",$request->color);
-        $size  = implode(", ",$request->size);
         $description = $request -> description;
 
         $thumbnail   = $request->file('thumbnail');
@@ -36,31 +34,26 @@ class ProductController extends Controller
         $path        = 'uploads';
         $thumbnail->move($path ,$file_name);
 
-        Product::create([
-            'name'          => $name,
-            'cate_id'       => $category,
-            'regular_price' => $regular_price,
-            'sale_price'    => $sale_price,
-            'color'         => $color,
-            'size'          => $size,
-            'description'   => $description,
-            'thumbnail'     => $thumbnail,
-            'viewer'        => 0,
-            'thumbnail'     => $file_name,
-        ]);
+        //Create
+        $product = new Product();
+        $product->name = $name;
+        $product->cate_id = $category;
+        $product->regular_price = $regular_price;
+        $product->sale_price = $sale_price;
+        $product->description = $description;
+        $product->viewer = 0;
+        $product->thumbnail= $file_name;
+        $product->save();
 
-        return redirect('admin/product-add');
+        // Save Forieng
+        $product->colors()->attach($request->color);
+        $product->sizes()->attach($request->size);
+        $product->save();
+
+        return redirect('/admin/product-view');
     }
-
-//    public  function  view_product(){
-//
-//        $products = Product::with('colors')->get();
-//
-//
-//        return $products;
-//    }
     public function view_product(){
-        $products = Product::with('colors')->get();
+        $products = Product::with('colors', 'sizes')->get();
         return view('backend.view_product', ['products' => $products]);
     }
 }

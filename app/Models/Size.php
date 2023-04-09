@@ -10,4 +10,7 @@ class Size extends Model
     use HasFactory;
     protected $table = 'size';
     protected $fillable = ['name'];
+
+
+    protected $hidden = ['pivot'];
 }
