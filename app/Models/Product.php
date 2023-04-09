@@ -7,18 +7,23 @@ use Illuminate\Database\Eloquent\Model;
 
 class Product extends Model
 {
-    use HasFactory;
     protected $table = 'product';
     protected $fillable = [
+        'id',
         'name',
         'cate_id',
         'regular_price',
         'sale_price',
-        'color',
-        'size',
         'description',
         'thumbnail',
         'viewer',
         'thumbnail',
     ];
+
+
+    protected $hidden = ['pivot'];
+    public function colors()
+    {
+        return $this->belongsToMany(Color::class, 'product_color', 'product_id', 'color_id');
+    }
 }

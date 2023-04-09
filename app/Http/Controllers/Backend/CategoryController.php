@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Backend;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Category;
+use Illuminate\Support\Facades\DB;
 
 class CategoryController extends Controller
 {
@@ -36,5 +37,9 @@ class CategoryController extends Controller
         $category -> save();
 
         return redirect('/admin/category-view');
+    }
+    public function remove_category($id){
+        Category::find($id)->delete();
+        return back();
     }
 }

@@ -17,8 +17,6 @@ return new class extends Migration
             $table->string('name');
             $table->string('regular_price');
             $table->string('sale_price');
-            $table->string('color');
-            $table->string('size');
             $table->text('description');
             $table->string('thumbnail');
             $table->integer('viewer');

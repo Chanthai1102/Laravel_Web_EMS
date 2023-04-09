@@ -324,6 +324,8 @@
 <!-- Page JS -->
 
 <script src="{{url('Backend/assets/js/form-basic-inputs.js')}}"></script>
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+<script src="{{url('Backend/assets/js/alert.js')}}"></script>
 
 <!-- Place this tag in your head or just before your close body tag. -->
 <script async defer src="{{url('https://buttons.github.io/buttons.js')}}"></script>

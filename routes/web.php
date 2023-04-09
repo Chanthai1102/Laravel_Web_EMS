@@ -47,6 +47,7 @@ Route::prefix('/admin')->group(function (){
         Route::get('/category-view', [CategoryController::class, 'view_category']);
         Route::get('/category-edit/{id}', [CategoryController::class, 'edit_category']);
         Route::post('/category-edit/submit', [CategoryController::class, 'edit_category_submit']);
+        Route::get('/category-remove/{id}', [CategoryController::class, 'remove_category'])->name('category_remove');
 //        Size
         Route::get('/size-add', [SizeController::class, 'add_size']);
         Route::post('/size-add/submit', [SizeController::class, 'add_size_submit']);
@@ -58,7 +59,7 @@ Route::prefix('/admin')->group(function (){
         Route::get('/color-add', [ColorController::class, 'add_color']);
         Route::post('/color-add/submit', [ColorController::class, 'add_color_submit']);
         Route::get('/color-edit/{id}', [ColorController::class, 'edit_color']);
-        Route::post('/color-edit/submit', [ColorController::class, 'edit_color_submit']);
+        Route::post('/color-edit/submit/', [ColorController::class, 'edit_color_submit']);
 //        Product
         Route::get('/product-add', [ProductController::class, 'add_product']);
         Route::post('/product-add/submit', [ProductController::class, 'add_product_submit']);

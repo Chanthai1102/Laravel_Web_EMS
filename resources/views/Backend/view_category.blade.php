@@ -35,7 +35,7 @@
                             </td>
                             <td>
                                 <a href="/admin/category-edit/{{$item->id}}" class="btn btn-success">Edit</a>
-                                <a href="/admin/category-remove/{{$item->id}}" class="btn btn-danger">Remove</a>
+                                <a href="javascript:DeleteAlert('{{route('category_remove', $item->id)}}')" class="btn btn-danger">Remove</a>
                             </td>
                         </tr>
                     @endforeach

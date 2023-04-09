@@ -51,15 +51,16 @@ class ProductController extends Controller
 
         return redirect('admin/product-add');
     }
-    public function view_product(){
-        $products = DB::table('product')
-            ->join('category', 'product.cate_id', '=', 'category.id')
-            ->join('color', 'product.color', '=', 'color.id')
-            ->join('size', 'product.size', '=', 'size.id')
-            ->select('product.*', 'category.name as cate_name', 'color.name as color_name', 'size.name as size_name')
-            ->orderBy('product.id', 'desc')
-            ->get();
 
-        return view('backend.view_product', ['product' => $products]);
+//    public  function  view_product(){
+//
+//        $products = Product::with('colors')->get();
+//
+//
+//        return $products;
+//    }
+    public function view_product(){
+        $products = Product::with('colors')->get();
+        return view('backend.view_product', ['products' => $products]);
     }
 }

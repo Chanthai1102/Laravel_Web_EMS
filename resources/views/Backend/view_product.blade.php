@@ -26,14 +26,20 @@
                         </tr>
                         </thead>
                         <tbody class="table-border-bottom-0">
-                        @foreach ($product as $item)
+                        @foreach ($products as $item)
                             <tr>
                                 <td>{{$item->name}}</td>
                                 <td>{{$item->regular_price}}$</td>
                                 <td>{{$item->sale_price}}$</td>
                                 <td>{{$item->cate_name}}</td>
-                                <td>{{$item->color_name}}</td>
-                                <td>{{$item->size_name}}</td>
+                                <td>
+                                    @foreach($item->colors as $color)
+                                        <span class="badge" style="background-color: {{$color->color}}">
+                                        {{$color->name}}
+                                        </span>
+                                    @endforeach
+                                </td>
+                                <td></td>
                                 <td>{{$item->viewer}}</td>
                                 <td><i class="fab fa-angular fa-lg text-danger me-3"></i>
                                     <img src="../uploads/{{$item->thumbnail}}" width="80px">
